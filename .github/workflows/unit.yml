@@ -8,7 +8,7 @@ on:
 jobs:
   Unit-test:
     name: Run unit tests on PR in main
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -17,7 +17,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/gradle-build-action@v2
       - name: get all files mode
         run: cd app && ls -al
       - name: Change gradle wrapper permission
