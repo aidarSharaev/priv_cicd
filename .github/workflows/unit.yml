@@ -21,4 +21,4 @@ jobs:
       - name: get all files mode
         run: ls -al
       - name: Run unit tests
-        run: ./gradlew test
+        run: ./gradlew test -q
