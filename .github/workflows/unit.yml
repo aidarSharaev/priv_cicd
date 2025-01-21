@@ -16,6 +16,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+          cache: gradle
       - name: get all files mode
         run: ls -al
       - name: Run unit tests
@@ -23,4 +24,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: Download report
-          path: app/build/reports/tests/testDebugUnitTest/index.html
+          path: app/build/reports/tests/testDebugUnitTest/
