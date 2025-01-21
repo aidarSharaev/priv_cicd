@@ -19,7 +19,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
       - name: get all files mode
-        run: ls -al
+        run: cd app && ls -al
       - name: Change gradle wrapper permission
         run: chmod +x gradlew
       - name: Run unit tests
