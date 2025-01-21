@@ -19,7 +19,7 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
       - name: get all files mode
-        run: cd app && ls -al
+        run: ls -al
       - name: Change gradle wrapper permission
         run: chmod +x gradlew
       - name: Run unit tests
