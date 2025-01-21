@@ -2,11 +2,9 @@ name: PR_unit_tests
 
 on:
   pull_request:
-    branches:
-    - 'main'
+    branches: [ main ]
   push:
-    branches:
-    - 'main'
+    branches: [ main ]
 
 jobs:
   Unit-test:
@@ -16,7 +14,6 @@ jobs:
   steps:
   - uses: actions/checkout@v4
   - uses: actions/setup-java@v4
-    with:
-      java-version: '1.8'
+    with: {java-version: 1.8}
   - name: Run unit tests
     run: ./gradlew test
