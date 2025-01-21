@@ -4,19 +4,24 @@ on:
   pull_request:
     branches:
     - 'main'
-  push:
-    branches:
-    - 'main'
 
 jobs:
   Unit-test:
     name: Run unit tests on PR in main
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
 
-  steps:
-  - uses: actions/checkout@v4
-  - uses: actions/setup-java@v4
-    with:
-      java-version: '1.8'
-  - name: Run unit tests
-    run: ./gradlew test
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+          cache: gradle
+      - name: get all files mode
+        run: ls -al
+      - name: Run unit tests
+        run: ./gradlew test -q
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Download report
+          path: app/build/reports/tests/testDebugUnitTest/
