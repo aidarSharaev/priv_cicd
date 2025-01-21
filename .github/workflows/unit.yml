@@ -16,13 +16,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-      - uses: actions/upload-artifact@v4
-        with:
-          name: Download report
-          path: app/build/reports/tests/testDebugUnitTest/
       - name: get all files mode
         run: ls -al
       - name: Run unit tests
         run: ./gradlew test -q
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Download report
+          path: app/build/reports/tests/testDebugUnitTest/index.html
